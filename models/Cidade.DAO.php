@@ -14,7 +14,7 @@
 			//substituir o ponto de interrogação
 			$stm->bindValue(1, $cidade->getId_cidade());
 			$stm->bindValue(2, $cidade->getNome());
-			$stm->bindValue(3, $cidade->uf());		
+			$stm->bindValue(3, $cidade->getUf());		
 			$stm->bindValue(4, $cidade->getSituacao());
 			//executar a frase sql
 			$stm->execute();
@@ -28,7 +28,7 @@
 			$stm = $this->db->prepare($sql);
 			$stm->bindValue(1, $cidade->getId_cidade());
 			$stm->bindValue(2, $cidade->getNome());
-			$stm->bindValue(3, $cidade->uf());		
+			$stm->bindValue(3, $cidade->getUf());		
 			$stm->bindValue(4, $cidade->getSituacao());
 			$stm->execute();
 			$this->db = null;
@@ -38,12 +38,12 @@
 		{
 			$sql = "DELETE FROM cidade WHERE idcidade = ?";
 			$stm = $this->db->prepare($sql);			
-            $stm->bindValue(1, $cidade->getIdcidade());
+            $stm->bindValue(1, $cidade->getId_cidade());
 			$stm->execute();
 			$this->db = null;
 		}
 		 
-		public function buscar_todos()
+		public function buscar_todas()
 		{
 			//frase sql que será executada
 			$sql = "SELECT * FROM cidade as p, cidade as c WHERE p.id_cidade = c.id_cidade";
@@ -56,23 +56,23 @@
 			//retornar o resultado da execução da frase sql
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
-		public function buscar_um_cidade($cidade)
+		public function buscar_uma_cidade($cidade)
 		{
 			$sql = "SELECT * FROM cidade WHERE id_cidade = ?";
 			
 			$stm = $this->db->prepare($sql);
-			$stm->bindValue(1,$cidade->getIdisuario());
+			$stm->bindValue(1,$cidade->getId_cidade());
 			$stm->execute();
 			$this->db = null;
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function alterar_situacao_cidade($cidade)
 		{
-			$sql = "UPDATE cidade SET situacao = ? WHERE idcidade = ?";
+			$sql = "UPDATE cidade SET situacao = ? WHERE id_cidade = ?";
 			$stm = $this->db->prepare($sql);
 			$stm->bindValue(1, $cidade->getId_cidade());
 			$stm->bindValue(2, $cidade->getNome());
-			$stm->bindValue(3, $cidade->uf());		
+			$stm->bindValue(3, $cidade->getUf());		
 			$stm->bindValue(4, $cidade->getSituacao());
 			$this->db = null;
 		}

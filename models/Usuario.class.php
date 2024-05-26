@@ -13,7 +13,8 @@
             private string $numero = "",
             private string $bairro = "",
             private string $cep = "",
-            private string $situacao = "",){}
+            private string $situacao = "",
+			private $Cidade = null){}
             
 		
 		

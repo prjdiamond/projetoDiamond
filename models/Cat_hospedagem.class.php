@@ -4,7 +4,8 @@
 		public function __construct(
             private int $id_catHospedagem = "",
             private string $descritivo = "", 
-            private string $situacao = "",){}
+            private string $situacao = "",
+			private $cat_hospedagem = null){}){}
             
 		
 		

@@ -13,7 +13,8 @@
             private string $numero = "",
             private string $bairro = "",
             private string $cep = "",
-            private bool $situacao = "",){}
+            private bool $situacao = "",
+			private $Cat_alimentacao = null){}){}
             
 		
 		

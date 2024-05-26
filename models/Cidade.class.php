@@ -10,7 +10,8 @@
             private int $id_cidade = "",
             private string $nome = "", 
             private string $uf = "", 
-            private string $situacao = ""   
+            private string $situacao = "",
+            private $Cidade = null){}   
         ) {}
         
         public function getId_cidade()
